@@ -1,6 +1,16 @@
-import { all } from 'redux-saga/effects';
+import {fork, all} from 'redux-saga/effects';
 
-function* rootSaga() {
-  yield all([]);
+let sagas: any[] = [];
+const requireModule = require.context('../app', true, /\.saga.ts/);
+
+requireModule.keys().forEach(fileName => {
+    if (requireModule(fileName).default) {
+        sagas = [...sagas, ...requireModule(fileName).default];
+    }
+});
+
+function* rootSagas() {
+    const rootSagasForks = sagas.map(saga => fork(saga));
+    yield all([...rootSagasForks]);
 }
-export default rootSaga;
+export default rootSagas;

@@ -17,7 +17,7 @@ const App = (props: IProps) => {
     <Styled className='app'>
       <Switch>
         {routesMap.map((route: IRoute) =>
-          route.private ? <PrivateRoute {...route} /> : <Route {...route} />
+          route.private ? <PrivateRoute {...route} key={route.path}/> : <Route {...route} key={route.path}/>
         )}
       </Switch>
     </Styled>

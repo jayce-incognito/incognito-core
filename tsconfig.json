@@ -9,6 +9,6 @@
         "baseUrl": "."
     },
     "include": [
-        "src"
+        "./src/**/*"
       ]
 }

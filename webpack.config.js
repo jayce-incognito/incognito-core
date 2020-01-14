@@ -1,23 +1,26 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
+// const nodeExternals = require('webpack-node-externals');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.tsx',
     output: {
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
-        filename: '[filename].js'
     },
-    mode: "production",
-
+    mode: "development",
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
-
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx"]
+        extensions: [".ts", ".tsx", '.json', '.js'],
+        alias: {
+            src: path.resolve(__dirname, 'src')
+        },
+      
     },
-
     module: {
         rules: [
             {
@@ -46,6 +49,14 @@ module.exports = {
                   'sass-loader',
                 ],
               },
+              {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
+              },
         ],
 
     },
@@ -54,18 +65,21 @@ module.exports = {
     // assume a corresponding global variable exists and use that instead.
     // This is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    },
-    plugins: [
-        new HtmlWebpackPlugin()
+    externals: [
+        // nodeExternals()// in order to ignore all modules in node_modules folder
     ],
-    target: 'node', // in order to ignore built-in modules like path, fs, etc.
-    externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
-    resolve: {
-        alias: {
-            src: path.resolve(__dirname, 'src')
-        }
-    }
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'manifest/index.html'
+        }),
+        new CleanWebpackPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    target: 'web', // in order to ignore built-in modules like path, fs, etc.
+    devServer: {
+        hot: true,
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 3000,
+      },
 };
