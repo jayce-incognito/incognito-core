@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/jayce-incognito/incognito-core#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@types/react-redux": "^7.1.5",
@@ -41,6 +45,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.8.3",
     "@types/recompose": "^0.30.7",
     "axios": "^0.19.1",
     "react": "^16.12.0",
