@@ -2,14 +2,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
+const env = dotenv.config().parsed || {};
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
-  mode: 'development',
+  mode: env.MODE,
   // Enable sourcemaps for debugging webpack's output.
   devtool: 'source-map',
   resolve: {
@@ -48,7 +50,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|ico|svg|gif)$/i,
         use: [
           {
             loader: 'file-loader'
@@ -67,16 +69,24 @@ module.exports = {
   ],
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'manifest/index.html'
+      template: 'manifest/index.html',
+      favicon: 'manifest/favicon.png'
     }),
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        MODE: JSON.stringify(env.MODE),
+        SOURCE_DOMAIN: JSON.stringify(env.SOURCE_DOMAIN)
+      }
+    })
   ],
   target: 'web', // in order to ignore built-in modules like path, fs, etc.
   devServer: {
     hot: true,
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: [path.join(__dirname, 'dist')],
     compress: true,
-    port: 3000
+    port: env.PORT,
+    historyApiFallback: true
   }
 };
