@@ -8,6 +8,7 @@ export const Styled = styled.div`
     height: 100vh;
     position: relative;
     display: flex;
+    overflow-x: hidden;
     .intro {
       top: 50px;
       display: flex;
@@ -87,7 +88,7 @@ export const Styled = styled.div`
       flex-direction: column;
       .hook {
         max-width: 100%;
-        padding-top: 50px;
+        max-height: 800px;
       }
       .intro .title {
         :last-child {
@@ -95,9 +96,31 @@ export const Styled = styled.div`
         }
       }
     }
-    @media screen and (max-width: ${breakpoints.sm}){
+    @media screen and (max-width: ${breakpoints.sm}) {
       .hook {
-        min-height: unset;
+      }
+      .hook .title {
+        font-size: 32px;
+        line-height: 39px;
+      }
+      .hook .desc {
+        font-size: 16px;
+        line-height: 24px;
+      }
+      .hook .img-container {
+        margin-top: 20px;
+      }
+      .intro {
+        max-width: 320px;
+        width: 95%;
+      }
+      .intro .title {
+        font-size: 14px;
+        line-height: 33px;
+      }
+      .intro .img-container {
+        width: 35px;
+        height: 35px;
       }
     }
   }

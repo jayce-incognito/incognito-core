@@ -18,9 +18,18 @@ export const Fonts = styled.div`
 
 export const Styled = styled(Fonts)`
   &.app {
+    min-width: 320px;
+    overflow-x: hidden;
+    overflow-y: auto;
     * {
       font-family: Colfax;
       box-sizing: border-box;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
     .btn-container {
       border-radius: 6px;
