@@ -556,6 +556,13 @@ button {
   top: 0;
 }
 
+//center-vertical
+.abs-center-ver {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 //center-horizontal
 .abs-center-hor {
   position: absolute;
@@ -595,4 +602,8 @@ button {
 h1[contenteditable="true"] {
   width: 290px;
   padding: 5px;
+}
+
+img {
+  object-fit: contain;
 }

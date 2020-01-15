@@ -9,7 +9,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   mode: env.MODE,
   // Enable sourcemaps for debugging webpack's output.
@@ -56,6 +56,17 @@ module.exports = {
             loader: 'file-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|ico|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   },
@@ -84,7 +95,7 @@ module.exports = {
   target: 'web', // in order to ignore built-in modules like path, fs, etc.
   devServer: {
     hot: true,
-    contentBase: [path.join(__dirname, 'dist')],
+    contentBase: [path.join(__dirname, 'dist'), path.join(__dirname, 'public')],
     compress: true,
     port: env.PORT,
     historyApiFallback: true

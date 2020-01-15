@@ -4,6 +4,20 @@ import { createSelector } from 'reselect';
 export interface II18n {
   microsite: {
     helmet: string;
+    intro: {
+      left: string;
+      right: string;
+    };
+    left: {
+      title: string;
+      desc: string;
+      btnText: string;
+    };
+    right: {
+      title: string;
+      desc: string;
+      btnText: string;
+    };
   };
 }
 export const translateByLanguage = (language: string) => {
