@@ -1,14 +1,15 @@
-import * as React from "react";
-import styled from "styled-components";
+import * as React from 'react';
+import Header from 'src/app/shared/components/header';
+import { Styled } from './power.styled';
 
 interface IProps {}
 
-const Styled = styled.div``;
-
 const Power = (props: IProps) => {
-  return <Styled className="power">
-      This is page power
-  </Styled>;
+  return (
+    <Styled className='power'>
+      <Header />
+    </Styled>
+  );
 };
 
 export default Power;

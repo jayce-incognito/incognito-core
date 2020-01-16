@@ -16,5 +16,29 @@ export default {
       desc: 'Send, receive and store crypto privately.',
       btnText: 'Use'
     }
+  },
+  header: {
+    power: 'power',
+    use: 'use',
+    trade: 'trade',
+    create: 'create',
+    explore: 'explore',
+    incognito: 'incognito',
+    payroll: 'payroll',
+    tech: 'tech',
+    blog: 'blog',
+    outStory: 'out story'
+  },
+  sidebar: {
+    openSource: 'open source',
+    bootstrapped: 'bootstrapped',
+    host: 'Host a Virtual Node',
+    code: 'code',
+    deck: 'deck (PDF)',
+    whitepaper: 'whitepaper (PDF)',
+    telegram: 'telegram',
+    contactUs: 'contact us',
+    privacy: 'Privacy & Terms',
+    returnWarranty: 'Return & Warranty'
   }
 };

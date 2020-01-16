@@ -19,6 +19,30 @@ export interface II18n {
       btnText: string;
     };
   };
+  header: {
+    power: string;
+    use: string;
+    trade: string;
+    create: string;
+    explore: string;
+    incognito: string;
+    payroll: string;
+    tech: string;
+    blog: string;
+    outStory: string;
+  };
+  sidebar: {
+    openSource: string;
+    bootstrapped: string;
+    host: string;
+    code: string;
+    deck: string;
+    whitepaper: string;
+    telegram: string;
+    contactUs: string;
+    privacy: string;
+    returnWarranty: string;
+  };
 }
 export const translateByLanguage = (language: string) => {
   switch (language) {

@@ -17,6 +17,6 @@ export default [
   {
     exact: true,
     component: Power,
-    path: '/power'
+    path: '/node'
   }
 ];
