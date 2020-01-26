@@ -3,7 +3,10 @@ import { createSelector } from 'reselect';
 
 export interface II18n {
   microsite: {
-    helmet: string;
+    metaTags: {
+      title: string;
+      metas: any[];
+    };
     intro: {
       left: string;
       right: string;
@@ -42,6 +45,23 @@ export interface II18n {
     contactUs: string;
     privacy: string;
     returnWarranty: string;
+  };
+  node: {
+    metaTags: {
+      title: string;
+      metas: any[];
+    };
+    introContainer: {
+      introHeading: {
+        heading: string;
+        desc: string;
+      };
+      leftContent: any;
+      rightContent: any;
+    };
+    benefitContainer: any[];
+    featuredContainer: any[];
+    storyContainer: string;
   };
 }
 export const translateByLanguage = (language: string) => {

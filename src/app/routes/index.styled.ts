@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { getEnvs } from 'src/core/utils';
+import { breakpoints } from 'src/core/utils/styled';
 
 export const Fonts = styled.div`
   @font-face {
@@ -18,9 +19,6 @@ export const Fonts = styled.div`
 
 export const Styled = styled(Fonts)`
   &.app {
-    min-width: 320px;
-    overflow-x: hidden;
-    overflow-y: auto;
     * {
       font-family: Colfax;
       box-sizing: border-box;
@@ -31,6 +29,12 @@ export const Styled = styled(Fonts)`
         display: none;
       }
     }
+    /* .container {
+      min-width: ${breakpoints.minDesk};
+      margin: auto;
+      min-height: 100vh;
+      overflow-x: auto;
+    } */
     .btn-container {
       border-radius: 6px;
       font-size: 20px;
@@ -46,5 +50,11 @@ export const Styled = styled(Fonts)`
       display: block;
       text-align: center;
     }
+    /* @media screen and (max-width: ${breakpoints.sm}) {
+      .container {
+        max-width: ${breakpoints.maxMobi};
+        min-width: ${breakpoints.minMobi};
+      }
+    } */
   }
 `;

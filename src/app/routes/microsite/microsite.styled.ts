@@ -84,7 +84,7 @@ export const Styled = styled.div`
         height: 100%;
       }
     }
-    @media screen and (max-width: ${breakpoints.xl}) {
+    @media screen and (max-width: ${breakpoints.minDesk}) {
       flex-direction: column;
       .hook {
         max-width: 100%;

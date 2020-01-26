@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { translateSelector, II18n } from 'src/i18n';
-import Helmet from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { Styled } from './microsite.styled';
 import { getEnvs } from 'src/core/utils';
+import useMetaTags from 'react-metatags-hook';
 
 interface IProps {}
 
@@ -53,16 +53,16 @@ const Hook = ({ title, desc, btnText, to, imgSrc, ...rest }: IHook) => {
 };
 
 const Microsite = (props: IProps) => {
-  const { helmet, left, right, intro }: any = useSelector(
-    translateSelector
-  ).microsite;
-
+  const { microsite }: II18n = useSelector(translateSelector);
+  const { metaTags, left, right, intro } = microsite;
+  useMetaTags({
+    ...metaTags
+  });
   return (
     <Styled className='microsite'>
-      <Helmet title={helmet} />
       <Intro {...{ ...intro }} />
       <Hook
-        className="hook left-container"
+        className='hook left-container'
         title={left.title}
         desc={left.desc}
         btnText={left.btnText}
@@ -70,7 +70,7 @@ const Microsite = (props: IProps) => {
         imgSrc={`${getEnvs().SOURCE_DOMAIN}/images/microsite/6e32079.png`}
       />
       <Hook
-        className="hook right-container"
+        className='hook right-container'
         title={right.title}
         desc={right.desc}
         btnText={right.btnText}

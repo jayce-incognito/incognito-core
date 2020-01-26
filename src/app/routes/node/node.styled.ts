@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Styled = styled.div`
-    &.power {
-
-    }
+  &.node-container {
+  }
 `;
-
-   

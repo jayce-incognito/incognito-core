@@ -1,5 +1,5 @@
 import Microsite from './microsite';
-import Power from './power';
+import Power from './node';
 
 export interface IRoute {
   exact?: boolean;

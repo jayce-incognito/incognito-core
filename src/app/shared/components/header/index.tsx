@@ -82,4 +82,4 @@ const Header = (props: IProps) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
