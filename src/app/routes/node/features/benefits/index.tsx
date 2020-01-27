@@ -10,8 +10,7 @@ const Styled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 0%;
-    margin: auto;
+    width: 70% !important;
     .benefit {
       display: flex;
       align-items: flex-start;
@@ -35,6 +34,7 @@ const Styled = styled.div`
     }
     .benefit .content .desc {
       font-size: 14px;
+      line-height: 20px;
     }
   }
 `;
@@ -43,7 +43,7 @@ const Benefits = (props: IProps) => {
   const { node }: II18n = useSelector(translateSelector);
   const { benefitContainer } = node;
   return (
-    <Styled className='benefit-container'>
+    <Styled className='benefit-container node-child'>
       {benefitContainer.map(
         (
           item: {

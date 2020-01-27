@@ -2,13 +2,12 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { translateSelector, II18n } from 'src/i18n';
+import { breakpoints } from 'src/core/utils/styled';
 
 interface IProps {}
 
 const Styled = styled.div`
   &.story-container {
-    margin: auto;
-    max-width: 70%;
     h1.heading {
       font-size: 32px;
       line-height: 41px;
@@ -26,6 +25,14 @@ const Styled = styled.div`
       font-size: 24px;
       line-height: 33px;
       color: #111;
+    }
+    .group h3.subtitle {
+      font-size: 16px;
+      line-height: 25px;
+      letter-spacing: 0.1px;
+      margin-bottom: 30px;
+      color: #111;
+      font-family: Colfax-Book;
     }
     .group .description {
       font-size: 16px;
@@ -59,7 +66,7 @@ const Story = (props: IProps) => {
   const { storyContainer } = node;
   return (
     <Styled
-      className='story-container'
+      className='story-container node-child'
       dangerouslySetInnerHTML={{
         __html: storyContainer
       }}

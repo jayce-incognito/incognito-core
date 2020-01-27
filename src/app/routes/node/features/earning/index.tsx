@@ -10,7 +10,7 @@ const Styled = styled.div`
 `;
 
 const Earning = (props: IProps) => {
-  return <Styled className="earning-container">
+  return <Styled className="earning-container node-child">
 
   </Styled>;
 };

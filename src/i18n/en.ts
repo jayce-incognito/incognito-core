@@ -118,16 +118,19 @@ export default {
         }
       }
     ],
-    featuredContainer: [
-      `${getImgSrcFromNode()}/ea6c6b1.svg`,
-      `${getImgSrcFromNode()}/144da50.svg`,
-      `${getImgSrcFromNode()}/b785ff8.svg`,
-      `${getImgSrcFromNode()}/9e8c672.svg`,
-      `${getImgSrcFromNode()}/71faa5c.svg`,
-      `${getImgSrcFromNode()}/9c0986c.svg`,
-      `${getImgSrcFromNode()}/63d7948.svg`,
-      `${getImgSrcFromNode()}/e3649d1.svg`
-    ],
+    featuredContainer: {
+      title: `Node is featured on`,
+      sliderContents: [
+        `${getImgSrcFromNode()}/ea6c6b1.svg`,
+        `${getImgSrcFromNode()}/144da50.svg`,
+        `${getImgSrcFromNode()}/b785ff8.svg`,
+        `${getImgSrcFromNode()}/9e8c672.svg`,
+        `${getImgSrcFromNode()}/71faa5c.svg`,
+        `${getImgSrcFromNode()}/9c0986c.svg`,
+        `${getImgSrcFromNode()}/63d7948.svg`,
+        `${getImgSrcFromNode()}/e3649d1.svg`
+      ]
+    },
     storyContainer: `
     <h1 class="heading">Meet Node.</h1>
     <div class="content">

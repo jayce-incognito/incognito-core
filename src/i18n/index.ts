@@ -60,7 +60,10 @@ export interface II18n {
       rightContent: any;
     };
     benefitContainer: any[];
-    featuredContainer: any[];
+    featuredContainer: {
+      title: string;
+      sliderContents: any[];
+    };
     storyContainer: string;
   };
 }

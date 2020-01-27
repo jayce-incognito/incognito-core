@@ -17,6 +17,7 @@ const Styled = styled.div`
       letter-spacing: 0.4px;
       text-transform: none;
       font-weight: 500;
+      font-family: Colfax-Book;
     }
     .intro-heading .desc {
       color: #4a5656;
@@ -34,7 +35,7 @@ const Intro = (props: IProps) => {
   const { node }: II18n = useSelector(translateSelector);
   const { introHeading } = node.introContainer;
   return (
-    <Styled className='intro-container'>
+    <Styled className='intro-container node-child'>
       <div className='intro-heading'>
         <h1 className='heading'>{introHeading.heading}</h1>
         <p className='desc'>{introHeading.desc}</p>

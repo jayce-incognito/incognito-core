@@ -9,8 +9,24 @@ interface IProps {}
 
 const Styled = styled.div`
   &.featured-container {
-    margin: auto;
-    max-width: 70%;
+    .title {
+      font-size: 24px;
+      font-weight: 500;
+      color: #111;
+      font-family: Colfax-Book;
+      text-align: center;
+      ::after {
+        margin: 20px auto 0;
+        width: 40px;
+        display: block;
+        content: '';
+        height: 2px;
+        background-color: #25cdd6;
+      }
+    }
+    .slick-slider {
+      margin-top: 30px;
+    }
     .slick-arrow {
       background-repeat: no-repeat;
       background-size: cover;
@@ -46,7 +62,7 @@ const Styled = styled.div`
 
 const Featured = (props: IProps) => {
   const { node }: II18n = useSelector(translateSelector);
-  const { featuredContainer } = node;
+  const { sliderContents, title } = node.featuredContainer;
   const sliderConfigs = {
     dots: false,
     slidesToShow: 4,
@@ -59,9 +75,10 @@ const Featured = (props: IProps) => {
     autoplaySpeed: 1000
   };
   return (
-    <Styled className='featured-container'>
+    <Styled className='featured-container node-child'>
+      <p className='title'>{title}</p>
       <Slider {...sliderConfigs}>
-        {featuredContainer.map((icon: string, key: string | number) => (
+        {sliderContents.map((icon: string, key: string | number) => (
           <div className='icon abs-center' key={key}>
             <img src={icon} alt='' />
           </div>
