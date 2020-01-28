@@ -29,12 +29,6 @@ export const Styled = styled(Fonts)`
         display: none;
       }
     }
-    /* .container {
-      min-width: ${breakpoints.minDesk};
-      margin: auto;
-      min-height: 100vh;
-      overflow-x: auto;
-    } */
     .btn-container {
       border-radius: 6px;
       font-size: 20px;
@@ -50,11 +44,5 @@ export const Styled = styled(Fonts)`
       display: block;
       text-align: center;
     }
-    /* @media screen and (max-width: ${breakpoints.sm}) {
-      .container {
-        max-width: ${breakpoints.maxMobi};
-        min-width: ${breakpoints.minMobi};
-      }
-    } */
   }
 `;

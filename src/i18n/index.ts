@@ -65,6 +65,10 @@ export interface II18n {
       sliderContents: any[];
     };
     storyContainer: string;
+    subContainer: {
+      title: string;
+      desc: string;
+    };
   };
 }
 export const translateByLanguage = (language: string) => {

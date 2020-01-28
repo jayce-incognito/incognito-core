@@ -10,19 +10,9 @@ interface IProps {}
 const Styled = styled.div`
   &.featured-container {
     .title {
-      font-size: 24px;
-      font-weight: 500;
       color: #111;
-      font-family: Colfax-Book;
-      text-align: center;
-      ::after {
-        margin: 20px auto 0;
-        width: 40px;
-        display: block;
-        content: '';
-        height: 2px;
-        background-color: #25cdd6;
-      }
+      font-size: 24px;
+      line-height: 32px;
     }
     .slick-slider {
       margin-top: 30px;
@@ -76,7 +66,7 @@ const Featured = (props: IProps) => {
   };
   return (
     <Styled className='featured-container node-child'>
-      <p className='title'>{title}</p>
+      <p className='title title-with-underline'>{title}</p>
       <Slider {...sliderConfigs}>
         {sliderContents.map((icon: string, key: string | number) => (
           <div className='icon abs-center' key={key}>

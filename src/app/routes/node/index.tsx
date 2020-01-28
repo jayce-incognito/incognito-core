@@ -9,6 +9,7 @@ import Earning from './features/earning';
 import Benefits from './features/benefits';
 import Featured from './features/featured';
 import Story from './features/story';
+import Subcription from "./features/subcription";
 
 interface IProps {}
 
@@ -27,6 +28,7 @@ const Power = (props: IProps) => {
         <Benefits />
         <Featured />
         <Story />
+        <Subcription />
       </div>
     </Styled>
   );
