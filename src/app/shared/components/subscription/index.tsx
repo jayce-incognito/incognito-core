@@ -7,6 +7,7 @@ import { subscribe } from './api';
 import { actionToggleNotifications as toggleToast } from 'src/core/components/nofitications';
 import { isEmailValid } from 'src/core/components/input';
 import ErrorBoundary from 'src/core/components/errorBound';
+import { Notifications } from 'src/core/components/nofitications';
 
 interface IProps {}
 
@@ -114,7 +115,8 @@ const Subscription = (props: IProps) => {
             {state.isFetching ? form.btnLoading : form.btnSubmit}
           </button>
         </form>
-      </Styled>s
+      </Styled>
+      <Notifications />
     </ErrorBoundary>
   );
 };

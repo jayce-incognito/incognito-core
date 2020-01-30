@@ -30,7 +30,7 @@ const Header = (props: IProps) => {
       content: power
     },
     {
-      to: '/send-bitcoin-anonymously',
+      to: '/send-bitcoin-anonymously-01',
       content: use
     },
     {

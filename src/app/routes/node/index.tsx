@@ -9,7 +9,6 @@ import Earning from './features/earning';
 import Benefits from './features/benefits';
 import Featured from './features/featured';
 import Story from './features/story';
-import { Notifications } from 'src/core/components/nofitications';
 import Subscription from 'src/app/shared/components/subscription';
 import ErrorBoundary from 'src/core/components/errorBound';
 
@@ -33,7 +32,6 @@ const Power = (props: IProps) => {
           <Story />
           <Subscription />
         </div>
-        <Notifications />
       </Styled>
     </ErrorBoundary>
   );
