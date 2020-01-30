@@ -68,6 +68,11 @@ export interface II18n {
     subContainer: {
       title: string;
       desc: string;
+      form: {
+        btnLoading: string;
+        btnSubmit: string;
+        inputEmail: string;
+      }
     };
   };
 }

@@ -9,7 +9,9 @@ const Styled = styled.form`
 `;
 
 const Form = (props: IProps) => {
-  return <Styled className='form'></Styled>;
+  return <Styled className='form'>
+      
+  </Styled>;
 };
 
 export default React.memo(Form);

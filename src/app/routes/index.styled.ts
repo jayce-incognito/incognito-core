@@ -29,6 +29,14 @@ export const Styled = styled(Fonts)`
         display: none;
       }
     }
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
     .btn-container {
       border-radius: 6px;
       font-size: 20px;
@@ -43,6 +51,27 @@ export const Styled = styled(Fonts)`
       line-height: 54px;
       display: block;
       text-align: center;
+      :hover {
+        opacity: 0.8;
+      }
+      &.loading {
+        position: relative;
+        background: #aaa;
+        ::before {
+          content: '';
+          margin-top: -11px;
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          border: 2px solid #fff;
+          border-top-color: transparent;
+          animation: spin linear infinite 2s;
+        }
+      }
     }
   }
 `;

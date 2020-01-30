@@ -285,7 +285,8 @@ export default {
       desc: `Drop your email below to stay up-to-date on the latest features and releases.`,
       form: {
         inputEmail: `Enter your email`,
-        btnSubmit: `Be the first`
+        btnSubmit: `Be the first`,
+        btnLoading: "Sending..."
       }
     }
   }
