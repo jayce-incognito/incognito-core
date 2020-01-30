@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { StyleCommon } from './index.styled';
+import { StyleCommon } from './input.styled';
 
 interface IProps {}
 
@@ -14,7 +14,6 @@ const InputEmail = (props: IProps & React.InputHTMLAttributes<HTMLInputElement>)
     <Styled className='input-email'>
       <input
         type='text'
-        pattern={`[A-Za-z0-9._%+-]{3,}@[a-zA-Z0-9-]{2,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})`}
         {...props}
       />
     </Styled>

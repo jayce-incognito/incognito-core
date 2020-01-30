@@ -72,8 +72,13 @@ export interface II18n {
         btnLoading: string;
         btnSubmit: string;
         inputEmail: string;
-      }
+        msgSubSuccess: string;
+      };
     };
+  };
+  errors: {
+    validEmail: string;
+    emptyEmail: string;
   };
 }
 export const translateByLanguage = (language: string) => {

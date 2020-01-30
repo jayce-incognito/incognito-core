@@ -1,9 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { translateSelector } from 'src/i18n';
 import { InputEmail } from 'src/core/components/input';
 import { subscribe } from './api';
+import { actionToggleNotifications as toggleToast } from 'src/core/components/nofitications';
+import { isEmailValid } from 'src/core/components/input';
 
 interface IProps {}
 
@@ -35,7 +37,8 @@ const Styled = styled.div`
 `;
 
 const Subscription = (props: IProps) => {
-  const { node } = useSelector(translateSelector);
+  const dispatch = useDispatch();
+  const { node, errors } = useSelector(translateSelector);
   const { title, desc, form } = node.subContainer;
   const [state, setState] = React.useState({
     isFetching: false,
@@ -48,6 +51,15 @@ const Subscription = (props: IProps) => {
   });
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
+    if (!isEmailValid(state.data.Email)) {
+      return await dispatch(
+        toggleToast({
+          toggle: true,
+          type: 'error',
+          data: errors.validEmail
+        })
+      );
+    }
     if (!state.isFetching) {
       try {
         await setState({ ...state, isFetching: true });
@@ -57,12 +69,23 @@ const Subscription = (props: IProps) => {
           isFetched: true,
           isFetching: false
         });
+        await dispatch(
+          toggleToast({
+            toggle: true,
+            data: form.msgSubSuccess
+          })
+        );
       } catch (error) {
         await setState({
           ...state,
           isFetching: false,
           isFetched: false
         });
+        await dispatch(
+          toggleToast({
+            toggle: true
+          })
+        );
       }
     }
   };

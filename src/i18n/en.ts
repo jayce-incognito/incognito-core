@@ -286,8 +286,13 @@ export default {
       form: {
         inputEmail: `Enter your email`,
         btnSubmit: `Be the first`,
-        btnLoading: "Sending..."
+        btnLoading: 'Sending...',
+        msgSubSuccess: 'Your email has been subscribed!'
       }
     }
+  },
+  errors: {
+    validEmail: 'Please enter a valid email address',
+    emptyEmail: 'Please enter an email'
   }
 };

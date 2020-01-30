@@ -9,7 +9,8 @@ import Earning from './features/earning';
 import Benefits from './features/benefits';
 import Featured from './features/featured';
 import Story from './features/story';
-import Subscription from "./features/subscription";
+import Subscription from './features/subscription';
+import { Notifications } from 'src/core/components/nofitications';
 
 interface IProps {}
 
@@ -23,13 +24,14 @@ const Power = (props: IProps) => {
     <Styled className='node-container'>
       <Header />
       <div className='container'>
-        {/* <Intro />
+        <Intro />
         <Earning />
         <Benefits />
         <Featured />
-        <Story /> */}
+        <Story />
         <Subscription />
       </div>
+      <Notifications />
     </Styled>
   );
 };

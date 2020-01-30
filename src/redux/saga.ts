@@ -1,7 +1,7 @@
 import {fork, all} from 'redux-saga/effects';
 
 let sagas: any[] = [];
-const requireModule = require.context('../app', true, /\.saga.ts/);
+const requireModule = require.context('../../src', true, /\.saga.ts/);
 
 requireModule.keys().forEach(fileName => {
     if (requireModule(fileName).default) {

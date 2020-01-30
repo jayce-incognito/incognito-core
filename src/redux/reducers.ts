@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 let reducers : any = {};
 try {
-  const requireModule = require.context('../app', true, /\.reducer.ts/);
+  const requireModule = require.context('../../src', true, /\.reducer.ts/);
   requireModule.keys().forEach(fileName => {
     const filterName = fileName.split('/');
     const reducerName = filterName[filterName.length - 1].split('.')[0];
