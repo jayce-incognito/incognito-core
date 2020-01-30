@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { translateSelector, II18n } from 'src/i18n';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -35,12 +36,14 @@ const Intro = (props: IProps) => {
   const { node }: II18n = useSelector(translateSelector);
   const { introHeading } = node.introContainer;
   return (
-    <Styled className='intro-container node-child'>
-      <div className='intro-heading'>
-        <h1 className='heading'>{introHeading.heading}</h1>
-        <p className='desc'>{introHeading.desc}</p>
-      </div>
-    </Styled>
+    <ErrorBoundary>
+      <Styled className='intro-container child-container'>
+        <div className='intro-heading'>
+          <h1 className='heading'>{introHeading.heading}</h1>
+          <p className='desc'>{introHeading.desc}</p>
+        </div>
+      </Styled>
+    </ErrorBoundary>
   );
 };
 

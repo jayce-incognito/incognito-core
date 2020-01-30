@@ -6,6 +6,7 @@ import { InputEmail } from 'src/core/components/input';
 import { subscribe } from './api';
 import { actionToggleNotifications as toggleToast } from 'src/core/components/nofitications';
 import { isEmailValid } from 'src/core/components/input';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -90,29 +91,31 @@ const Subscription = (props: IProps) => {
     }
   };
   return (
-    <Styled className='subscription-container node-child'>
-      <p className='title title-with-underline'>{title}</p>
-      <p className='desc'>{desc}</p>
-      <form className='form-container' action='' onSubmit={handleOnSubmit}>
-        <InputEmail
-          placeholder={form.inputEmail}
-          onChange={(e: any) =>
-            setState({
-              ...state,
-              data: { ...state.data, Email: e.target.value }
-            })
-          }
-        />
-        <button
-          className={`btn-container btn-submit ${
-            state.isFetching ? 'loading' : ''
-          }`}
-          type='submit'
-        >
-          {state.isFetching ? form.btnLoading : form.btnSubmit}
-        </button>
-      </form>
-    </Styled>
+    <ErrorBoundary>
+      <Styled className='subscription-container'>
+        <p className='title title-with-underline'>{title}</p>
+        <p className='desc'>{desc}</p>
+        <form className='form-container' action='' onSubmit={handleOnSubmit}>
+          <InputEmail
+            placeholder={form.inputEmail}
+            onChange={(e: any) =>
+              setState({
+                ...state,
+                data: { ...state.data, Email: e.target.value }
+              })
+            }
+          />
+          <button
+            className={`btn-container btn-submit ${
+              state.isFetching ? 'loading' : ''
+            }`}
+            type='submit'
+          >
+            {state.isFetching ? form.btnLoading : form.btnSubmit}
+          </button>
+        </form>
+      </Styled>s
+    </ErrorBoundary>
   );
 };
 

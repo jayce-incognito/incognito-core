@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { getEnvs } from 'src/core/utils';
 import Sidebar from './sidebar';
 import useMouseDown from 'src/core/hooks/useMouseDown';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -36,20 +37,22 @@ const SidebarContainer = (props: IProps) => {
     handleClickOutside
   });
   return (
-    <SidebarContainerContext.Provider
-      value={{
-        handleToggleSidebar,
-        toggle
-      }}
-    >
-      <Styled className='sidebar-container'>
-        <button className='btn-toggle-sidebar' onClick={handleToggleSidebar}>
-          <img src={`${getEnvs().SOURCE_DOMAIN}/images/66d86c9.svg`} alt='' />
-        </button>
-        {toggle && <div className='overlay' ref={ref}></div>}
-        <Sidebar />
-      </Styled>
-    </SidebarContainerContext.Provider>
+    <ErrorBoundary>
+      <SidebarContainerContext.Provider
+        value={{
+          handleToggleSidebar,
+          toggle
+        }}
+      >
+        <Styled className='sidebar-container'>
+          <button className='btn-toggle-sidebar' onClick={handleToggleSidebar}>
+            <img src={`${getEnvs().SOURCE_DOMAIN}/images/66d86c9.svg`} alt='' />
+          </button>
+          {toggle && <div className='overlay' ref={ref}></div>}
+          <Sidebar />
+        </Styled>
+      </SidebarContainerContext.Provider>
+    </ErrorBoundary>
   );
 };
 

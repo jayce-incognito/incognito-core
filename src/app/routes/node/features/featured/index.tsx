@@ -4,6 +4,7 @@ import { II18n, translateSelector } from 'src/i18n';
 import { useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import { getEnvs } from 'src/core/utils';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -65,16 +66,18 @@ const Featured = (props: IProps) => {
     autoplaySpeed: 1000
   };
   return (
-    <Styled className='featured-container node-child'>
-      <p className='title title-with-underline'>{title}</p>
-      <Slider {...sliderConfigs}>
-        {sliderContents.map((icon: string, key: string | number) => (
-          <div className='icon abs-center' key={key}>
-            <img src={icon} alt='' />
-          </div>
-        ))}
-      </Slider>
-    </Styled>
+    <ErrorBoundary>
+      <Styled className='featured-container child-container'>
+        <p className='title title-with-underline'>{title}</p>
+        <Slider {...sliderConfigs}>
+          {sliderContents.map((icon: string, key: string | number) => (
+            <div className='icon abs-center' key={key}>
+              <img src={icon} alt='' />
+            </div>
+          ))}
+        </Slider>
+      </Styled>
+    </ErrorBoundary>
   );
 };
 

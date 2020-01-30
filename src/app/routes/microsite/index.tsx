@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Styled } from './microsite.styled';
 import { getEnvs } from 'src/core/utils';
 import useMetaTags from 'react-metatags-hook';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -59,25 +60,27 @@ const Microsite = (props: IProps) => {
     ...metaTags
   });
   return (
-    <Styled className='microsite'>
-      <Intro {...{ ...intro }} />
-      <Hook
-        className='hook left-container'
-        title={left.title}
-        desc={left.desc}
-        btnText={left.btnText}
-        to='/node'
-        imgSrc={`${getEnvs().SOURCE_DOMAIN}/images/microsite/6e32079.png`}
-      />
-      <Hook
-        className='hook right-container'
-        title={right.title}
-        desc={right.desc}
-        btnText={right.btnText}
-        to='/send-bitcoin-anonymously'
-        imgSrc={`${getEnvs().SOURCE_DOMAIN}/images/microsite/17eb399.png`}
-      />
-    </Styled>
+    <ErrorBoundary>
+      <Styled className='microsite'>
+        <Intro {...{ ...intro }} />
+        <Hook
+          className='hook left-container'
+          title={left.title}
+          desc={left.desc}
+          btnText={left.btnText}
+          to='/node'
+          imgSrc={`${getEnvs().SOURCE_DOMAIN}/images/microsite/6e32079.png`}
+        />
+        <Hook
+          className='hook right-container'
+          title={right.title}
+          desc={right.desc}
+          btnText={right.btnText}
+          to='/send-bitcoin-anonymously'
+          imgSrc={`${getEnvs().SOURCE_DOMAIN}/images/microsite/17eb399.png`}
+        />
+      </Styled>
+    </ErrorBoundary>
   );
 };
 

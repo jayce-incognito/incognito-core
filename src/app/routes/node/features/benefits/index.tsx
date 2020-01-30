@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { II18n, translateSelector } from 'src/i18n';
 import { useSelector } from 'react-redux';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -10,7 +11,6 @@ const Styled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70% !important;
     .benefit {
       display: flex;
       align-items: flex-start;
@@ -43,35 +43,37 @@ const Benefits = (props: IProps) => {
   const { node }: II18n = useSelector(translateSelector);
   const { benefitContainer } = node;
   return (
-    <Styled className='benefit-container node-child'>
-      {benefitContainer.map(
-        (
-          item: {
-            icon: string;
-            content: {
-              title: string;
-              desc: string;
-            };
-          },
-          key: number | string
-        ) => (
-          <div className='benefit' key={key}>
-            <div className='icon'>
-              <img src={item.icon} alt='' />
+    <ErrorBoundary>
+      <Styled className='benefit-container child-container'>
+        {benefitContainer.map(
+          (
+            item: {
+              icon: string;
+              content: {
+                title: string;
+                desc: string;
+              };
+            },
+            key: number | string
+          ) => (
+            <div className='benefit' key={key}>
+              <div className='icon'>
+                <img src={item.icon} alt='' />
+              </div>
+              <div className='content'>
+                <p className='label'>{item.content.title}</p>
+                <p
+                  className='desc'
+                  dangerouslySetInnerHTML={{
+                    __html: item.content.desc
+                  }}
+                ></p>
+              </div>
             </div>
-            <div className='content'>
-              <p className='label'>{item.content.title}</p>
-              <p
-                className='desc'
-                dangerouslySetInnerHTML={{
-                  __html: item.content.desc
-                }}
-              ></p>
-            </div>
-          </div>
-        )
-      )}
-    </Styled>
+          )
+        )}
+      </Styled>
+    </ErrorBoundary>
   );
 };
 

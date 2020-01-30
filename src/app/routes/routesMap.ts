@@ -1,5 +1,6 @@
 import Microsite from './microsite';
 import Power from './node';
+import Use from './use';
 
 export interface IRoute {
   exact?: boolean;
@@ -18,5 +19,10 @@ export default [
     exact: true,
     component: Power,
     path: '/node'
+  },
+  {
+    exact: true,
+    component: Use,
+    path: '/send-bitcoin-anonymously-01'
   }
 ];

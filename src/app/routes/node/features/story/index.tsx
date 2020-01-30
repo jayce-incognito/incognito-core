@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { translateSelector, II18n } from 'src/i18n';
 import { breakpoints } from 'src/core/utils/styled';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -65,12 +66,14 @@ const Story = (props: IProps) => {
   const { node }: II18n = useSelector(translateSelector);
   const { storyContainer } = node;
   return (
-    <Styled
-      className='story-container node-child'
-      dangerouslySetInnerHTML={{
-        __html: storyContainer
-      }}
-    ></Styled>
+    <ErrorBoundary>
+      <Styled
+        className='story-container child-container'
+        dangerouslySetInnerHTML={{
+          __html: storyContainer
+        }}
+      ></Styled>
+    </ErrorBoundary>
   );
 };
 

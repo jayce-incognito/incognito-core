@@ -37,6 +37,14 @@ export const Styled = styled(Fonts)`
         transform: rotate(360deg);
       }
     }
+    .container {
+      padding: 0 120px;
+      max-width: ${breakpoints.ex};
+      margin: auto;
+    }
+    .child-container {
+      margin: 80px auto;
+    }
     .btn-container {
       border-radius: 6px;
       font-size: 20px;

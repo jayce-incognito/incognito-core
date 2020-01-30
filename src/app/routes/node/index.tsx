@@ -9,8 +9,9 @@ import Earning from './features/earning';
 import Benefits from './features/benefits';
 import Featured from './features/featured';
 import Story from './features/story';
-import Subscription from './features/subscription';
 import { Notifications } from 'src/core/components/nofitications';
+import Subscription from 'src/app/shared/components/subscription';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -21,18 +22,20 @@ const Power = (props: IProps) => {
     ...metaTags
   });
   return (
-    <Styled className='node-container'>
-      <Header />
-      <div className='container'>
-        <Intro />
-        <Earning />
-        <Benefits />
-        <Featured />
-        <Story />
-        <Subscription />
-      </div>
-      <Notifications />
-    </Styled>
+    <ErrorBoundary>
+      <Styled className='node-container'>
+        <Header />
+        <div className='container'>
+          <Intro />
+          <Earning />
+          <Benefits />
+          <Featured />
+          <Story />
+          <Subscription />
+        </div>
+        <Notifications />
+      </Styled>
+    </ErrorBoundary>
   );
 };
 

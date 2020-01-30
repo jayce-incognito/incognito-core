@@ -6,6 +6,7 @@ import Navs from 'src/app/shared/components/navs';
 import { Link } from 'react-router-dom';
 import { getEnvs } from 'src/core/utils';
 import Sidebar from '../sidebar';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -43,7 +44,11 @@ const Header = (props: IProps) => {
     {
       to: '/',
       target: '_blank',
-      content: explore
+      content: explore,
+      onClickNav: (e: any) => {
+        e.preventDefault();
+        window.open(`https://mainnet.incognito.org`);
+      }
     }
   ];
   const navsRightFactories = [
@@ -66,19 +71,21 @@ const Header = (props: IProps) => {
   ];
 
   return (
-    <Styled className='header'>
-      <Navs navs={navsLeftFactories} classNameNav='nav-header-item' />
-      <div className='navs-center'>
-        <Link to='/' className='nav-main-item'>
-          <div className='img-container'>
-            <img src={`${getEnvs().SOURCE_DOMAIN}/images/logo.svg`} alt='' />
-          </div>
-          {incognito}
-        </Link>
-      </div>
-      <Navs navs={navsRightFactories} classNameNav='nav-header-item' />
-      <Sidebar />
-    </Styled>
+    <ErrorBoundary>
+      <Styled className='header'>
+        <Navs navs={navsLeftFactories} classNameNav='nav-header-item' />
+        <div className='navs-center'>
+          <Link to='/' className='nav-main-item'>
+            <div className='img-container'>
+              <img src={`${getEnvs().SOURCE_DOMAIN}/images/logo.svg`} alt='' />
+            </div>
+            {incognito}
+          </Link>
+        </div>
+        <Navs navs={navsRightFactories} classNameNav='nav-header-item' />
+        <Sidebar />
+      </Styled>
+    </ErrorBoundary>
   );
 };
 

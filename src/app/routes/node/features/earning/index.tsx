@@ -1,18 +1,20 @@
-import * as React from "react";
-import styled from "styled-components";
+import * as React from 'react';
+import styled from 'styled-components';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
 const Styled = styled.div`
-    &.earning {
-
-    }
+  &.earning {
+  }
 `;
 
 const Earning = (props: IProps) => {
-  return <Styled className="earning-container node-child">
-
-  </Styled>;
+  return (
+    <ErrorBoundary>
+      <Styled className='earning-container child-container'></Styled>
+    </ErrorBoundary>
+  );
 };
 
 export default React.memo(Earning);
