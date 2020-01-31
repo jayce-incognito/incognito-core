@@ -316,6 +316,10 @@ export default {
         desc: `Incognito isn’t just another privacy coin like Zcash or Monero. Incognito turns all your favorite coins into privacy coins. One tap to turn your Bitcoin into privacy Bitcoin. One tap to turn it public again. You’ve found the most convenient way to transact anonymously.`,
         src: `${getImgSrcFromUse()}/cece796.png`
       }
-    ]
+    ],
+    hookContainer: {
+      title: `Ready to go Incognito?`,
+      desc: `Just download the wallet.`
+    }
   }
 };

@@ -9,8 +9,9 @@ const Styled = styled.div`
   &.app-store-group {
     display: flex;
     margin: 20px 0;
+    align-items: center;
     .app {
-      height: 65px;
+      height: auto;
       margin-right: 15px;
       > img {
         width: 100%;

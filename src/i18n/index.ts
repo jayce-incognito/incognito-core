@@ -86,6 +86,10 @@ export interface II18n {
       desc: string;
     };
     sectionContainer: any[];
+    hookContainer: {
+      title: string;
+      desc: string;
+    }
   };
 }
 export const translateByLanguage = (language: string) => {
