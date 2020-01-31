@@ -4,6 +4,7 @@ import { getEnvs } from 'src/core/utils';
 import AppStore from 'src/app/shared/components/appStore';
 import { useSelector } from 'react-redux';
 import { translateSelector, II18n } from 'src/i18n';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -50,21 +51,23 @@ const Hook = (props: IProps) => {
   const { use }: II18n = useSelector(translateSelector);
   const { title, desc } = use.hookContainer;
   return (
-    <Styled className='hook-container'>
-      <div className='child-container'>
-        <div className='image-container'>
-          <img
-            src={`${getEnvs().SOURCE_DOMAIN}/images/use/0ab7c03.png`}
-            alt=''
-          />
+    <ErrorBoundary>
+      <Styled className='hook-container'>
+        <div className='child-container'>
+          <div className='image-container'>
+            <img
+              src={`${getEnvs().SOURCE_DOMAIN}/images/use/0ab7c03.png`}
+              alt=''
+            />
+          </div>
+          <div className='content'>
+            <h1 className='title'>{title}</h1>
+            <p className='desc'>{desc}</p>
+            <AppStore />
+          </div>
         </div>
-        <div className='content'>
-          <h1 className='title'>{title}</h1>
-          <p className='desc'>{desc}</p>
-          <AppStore />
-        </div>
-      </div>
-    </Styled>
+      </Styled>
+    </ErrorBoundary>
   );
 };
 

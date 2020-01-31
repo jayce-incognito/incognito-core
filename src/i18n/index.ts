@@ -1,12 +1,14 @@
 import en from './en';
 import { createSelector } from 'reselect';
 
+interface IMetaTags {
+  title: string;
+  metas: any[];
+}
+
 export interface II18n {
   microsite: {
-    metaTags: {
-      title: string;
-      metas: any[];
-    };
+    metaTags: IMetaTags;
     intro: {
       left: string;
       right: string;
@@ -81,6 +83,7 @@ export interface II18n {
     emptyEmail: string;
   };
   use: {
+    metaTags: IMetaTags;
     introContainer: {
       title: string;
       desc: string;
@@ -89,7 +92,7 @@ export interface II18n {
     hookContainer: {
       title: string;
       desc: string;
-    }
+    };
   };
 }
 export const translateByLanguage = (language: string) => {

@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { II18n, translateSelector } from 'src/i18n';
+import ErrorBoundary from 'src/core/components/errorBound';
 
 interface IProps {}
 
@@ -11,7 +12,7 @@ const Styled = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      :nth-child(2n){
+      :nth-child(2n) {
         .content {
           order: 1;
         }
@@ -49,28 +50,30 @@ const Section = (props: IProps) => {
   const { use }: II18n = useSelector(translateSelector);
   const { sectionContainer } = use;
   return (
-    <Styled className='section-container container'>
-      {sectionContainer.map(
-        (
-          item: {
-            title: string;
-            desc: string;
-            src: string;
-          },
-          key: string | number
-        ) => (
-          <div className='child-container' key={key}>
-            <div className='content'>
-              <h1 className='title'>{item.title}</h1>
-              <p className='desc'>{item.desc}</p>
+    <ErrorBoundary>
+      <Styled className='section-container container'>
+        {sectionContainer.map(
+          (
+            item: {
+              title: string;
+              desc: string;
+              src: string;
+            },
+            key: string | number
+          ) => (
+            <div className='child-container' key={key}>
+              <div className='content'>
+                <h1 className='title'>{item.title}</h1>
+                <p className='desc'>{item.desc}</p>
+              </div>
+              <div className='image-container'>
+                <img src={item.src} alt='' />
+              </div>
             </div>
-            <div className='image-container'>
-              <img src={item.src} alt='' />
-            </div>
-          </div>
-        )
-      )}
-    </Styled>
+          )
+        )}
+      </Styled>
+    </ErrorBoundary>
   );
 };
 

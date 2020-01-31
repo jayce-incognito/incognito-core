@@ -9,15 +9,15 @@ export default {
       metas: [
         {
           name: 'description',
-          content: `Node is not your typical bitcoin mining machine. It’s small, sleek, super quiet, and the most energy-efficient way to generate crypto, earning you Bitcoin, Ethereum and more for less electricity than it takes to power your toaster. Just plug and play. No coding required. No Bitcoin mining rigs allowed here.`
+          content: `Store and send Bitcoin anonymously, as well as Ethereum and any other cryptocurrency. Trade on the first ever fully anonymous crypto exchange. Turn all your coins into privacy coins. Be a validator, earn passive income, and power privacy for the world. What will you do first?`
         },
         {
           name: 'og:description',
-          content: `Node is not your typical bitcoin mining machine. It’s small, sleek, super quiet, and the most energy-efficient way to generate crypto, earning you Bitcoin, Ethereum and more for less electricity than it takes to power your toaster. Just plug and play. No coding required. No Bitcoin mining rigs allowed here.`
+          content: `Store and send Bitcoin anonymously, as well as Ethereum and any other cryptocurrency. Trade on the first ever fully anonymous crypto exchange. Turn all your coins into privacy coins. Be a validator, earn passive income, and power privacy for the world. What will you do first?`
         },
         {
           name: 'twitter:description',
-          content: `Node is not your typical bitcoin mining machine. It’s small, sleek, super quiet, and the most energy-efficient way to generate crypto, earning you Bitcoin, Ethereum and more for less electricity than it takes to power your toaster. Just plug and play. No coding required. No Bitcoin mining rigs allowed here.`
+          content: `Store and send Bitcoin anonymously, as well as Ethereum and any other cryptocurrency. Trade on the first ever fully anonymous crypto exchange. Turn all your coins into privacy coins. Be a validator, earn passive income, and power privacy for the world. What will you do first?`
         },
         {
           propperty: 'og:image',
@@ -296,6 +296,27 @@ export default {
     emptyEmail: 'Please enter an email'
   },
   use: {
+    metaTags: {
+      title: `Send Bitcoin anonymously. Make your bitcoin untraceable.`,
+      metas: [
+        {
+          name: 'description',
+          content: `Looking to send Bitcoin anonymously? Now you can stay completely anonymous when you send Bitcoin, Ethereum or any other cryptocurrency. Use the Incognito anonymous bitcoin wallet to hide your bitcoin activity from prying eyes. Turn all your coins into privacy coins.`
+        },
+        {
+          name: 'og:description',
+          content: `Looking to send Bitcoin anonymously? Now you can stay completely anonymous when you send Bitcoin, Ethereum or any other cryptocurrency. Use the Incognito anonymous bitcoin wallet to hide your bitcoin activity from prying eyes. Turn all your coins into privacy coins.`
+        },
+        {
+          name: 'twitter:description',
+          content: `Looking to send Bitcoin anonymously? Now you can stay completely anonymous when you send Bitcoin, Ethereum or any other cryptocurrency. Use the Incognito anonymous bitcoin wallet to hide your bitcoin activity from prying eyes. Turn all your coins into privacy coins.`
+        },
+        {
+          propperty: 'og:image',
+          content: `${getEnvs().SOURCE_DOMAIN}/images/wallet.png`
+        }
+      ]
+    },
     introContainer: {
       title: `Send Bitcoin<br/> <span class="highlight">anonymously</span>`,
       desc: `Hide your Bitcoin activity from prying eyes with a single tap. This multi-currency anonymous crypto wallet allows you to <span class="highlight">transact without a trace. </span> Turn on privacy for your BTC, ETH, DAI and more.`
