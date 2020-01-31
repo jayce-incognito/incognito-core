@@ -1,7 +1,7 @@
 import { getEnvs } from 'src/core/utils';
 
 const getImgSrcFromNode = () => `${getEnvs().SOURCE_DOMAIN}/images/node`;
-
+const getImgSrcFromUse = () => `${getEnvs().SOURCE_DOMAIN}/images/use`;
 export default {
   microsite: {
     metaTags: {
@@ -294,5 +294,28 @@ export default {
   errors: {
     validEmail: 'Please enter a valid email address',
     emptyEmail: 'Please enter an email'
+  },
+  use: {
+    introContainer: {
+      title: `Send Bitcoin<br/> <span class="highlight">anonymously</span>`,
+      desc: `Hide your Bitcoin activity from prying eyes with a single tap. This multi-currency anonymous crypto wallet allows you to <span class="highlight">transact without a trace. </span> Turn on privacy for your BTC, ETH, DAI and more.`
+    },
+    sectionContainer: [
+      {
+        title: `Isn’t crypto already private?`,
+        desc: `No. Right now, anyone can find out how much Bitcoin you have and what you do with it. Every single detail of your crypto finances is displayed for the world to see. Find that a little uncomfortable? Time to protect your privacy.`,
+        src: `${getImgSrcFromUse()}/e6c2b26.png`
+      },
+      {
+        title: `Stop others from searching your address and tracking your activity`,
+        desc: `Go invisible, be untraceable, choose privacy. Obscure senders, receivers, amounts and histories with a single tap. Every transaction made with the Incognito Wallet is privacy-protected. Now no one can snoop through your crypto finances.`,
+        src: `${getImgSrcFromUse()}/81f729d.png`
+      },
+      {
+        title: `Turn all your coins into privacy coins`,
+        desc: `Incognito isn’t just another privacy coin like Zcash or Monero. Incognito turns all your favorite coins into privacy coins. One tap to turn your Bitcoin into privacy Bitcoin. One tap to turn it public again. You’ve found the most convenient way to transact anonymously.`,
+        src: `${getImgSrcFromUse()}/cece796.png`
+      }
+    ]
   }
 };

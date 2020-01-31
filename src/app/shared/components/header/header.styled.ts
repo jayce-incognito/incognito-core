@@ -8,7 +8,13 @@ export const Styled = styled.div`
     padding: 0 5%;
     justify-content: space-between;
     border-bottom: solid 1px #f0f5f5;
-    position: relative;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    background: #fff;
+    z-index: 100;
     .nav-header-item {
       font-size: 12px;
       color: #657576;

@@ -37,8 +37,11 @@ export const Styled = styled(Fonts)`
         transform: rotate(360deg);
       }
     }
+    .highlight {
+      color: #25cdd6;
+    }
     .container {
-      padding: 0 120px;
+      padding: 0 200px;
       max-width: ${breakpoints.ex};
       margin: auto;
     }

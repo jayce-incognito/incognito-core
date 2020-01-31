@@ -80,6 +80,13 @@ export interface II18n {
     validEmail: string;
     emptyEmail: string;
   };
+  use: {
+    introContainer: {
+      title: string;
+      desc: string;
+    };
+    sectionContainer: any[];
+  };
 }
 export const translateByLanguage = (language: string) => {
   switch (language) {

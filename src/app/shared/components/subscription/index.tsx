@@ -20,6 +20,7 @@ const Styled = styled.div`
       font-size: 32px;
       line-height: 40px;
       color: #fff;
+      text-align: center;
     }
     .desc {
       color: #fff;
